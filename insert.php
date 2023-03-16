@@ -22,6 +22,7 @@
     }
     $sql = "INSERT INTO TEST_GPS (lat, lon, n, classe) VALUES ('$lat', '$lon', '$n', '$classe');";
     $result = mysqli_query($conn, $sql);
+    require('nav-bar.php');
     ?>
     <div class="Section1">
     <form action="post">
@@ -34,7 +35,7 @@
         <label for="classe">Classe</label>
         <input type="post" name="classe">
         <input type="submit" value="Insert" class="button">
-        <a href="index.html" class="button">Home</a>
+        
     </form>
     </div>
 </body>

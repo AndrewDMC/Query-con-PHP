@@ -16,12 +16,12 @@
     }
     $sql = "DELETE FROM TEST_GPS WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
+    require('nav-bar.php');
     ?>
     <form action="post">
         <label for="id">ID</label>
         <input type="post" name="id">
         <input type="submit" value="Delete" class="button">
-        <a href="index.html" class="button">Home</a>
     </form>
 </body>
 </html>

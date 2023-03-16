@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Update</title>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Query-Con-PHP</title>
+    <title>Update</title>
 </head>
 <body>
-    
+    <?php
+    $id = "";
+    require ('connection.php');
+    session_start();
+    if (isset ($_REQUEST['id'])) {
+        $id = $_REQUEST['id'];
+    }
+    $sql = "DELETE FROM TEST_GPS WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    require('nav-bar.php')
+    ?>
+    <form action="post">
+        <input type="post" name="id">
+    </form>
 </body>
 </html>
