@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Update</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <?php
     $id = "";
     require ('connection.php');
     session_start();
-    if (isset ($_REQUEST['id'])) {
-        $id = $_REQUEST['id'];
-    }
-    $sql = "DELETE FROM TEST_GPS WHERE id = '$id'";
-    $result = mysqli_query($conn, $sql);
-    require('nav-bar.php')
+    require('nav-bar.php');
     ?>
-    <form action="post">
-        <input type="post" name="id">
+
+    <form method="post" action="makeUpdate.php">
+        <select name="idToUpd">
+                <?php
+                    $fields = $conn->query("SELECT * FROM TEST_GPS");
+
+                    if ($fields->num_rows > 0) {
+                        while ($row = $fields->fetch_assoc()) {
+                            echo "<option class='option'>".$row["id"]."</option>";
+                        }
+                    }
+                ?>
+                </select>
+
+            <button class="button">Submit</button>
     </form>
+    <?php
+        require('footer.php');
+    ?>
 </body>
 </html>

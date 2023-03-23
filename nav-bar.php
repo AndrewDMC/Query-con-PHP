@@ -7,12 +7,13 @@
 </head>
 <body>
     
-    <div id="nav-bar">
+    <header class="nav-bar">
         <a href="index.php" class="navElement">Home</a>
         <a href="insert.php" class="navElement">Insert</a>
         <a href="delete.php" class="navElement">Delete</a>
         <a href="update.php" class="navElement">Update</a>
-    </div>
+        <a href="select.php" class="navElement">Select</a>
+    </header>
     
     
 </body>

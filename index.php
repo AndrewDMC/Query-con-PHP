@@ -10,6 +10,9 @@
     require('nav-bar.php');
     ?>
     <h1 id="Title">Query on PHP</h1>
+    <?php
+        require('footer.php');
+    ?>
     
 </body>
 </html>
