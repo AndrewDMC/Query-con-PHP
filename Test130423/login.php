@@ -26,7 +26,13 @@
         if ($rows == 1) {
             $_SESSION['nickname'] = $nickname;
             // Redirect user to index.php
-            header("Location: index.php");
+            if($nickname == "admin" && $password == "admin"){
+                header("Location: admin.php");
+            }
+            else{
+                header("Location: index.php");
+            }
+            
         } else {
             echo "<div class='form'>
                   <h3>nickname/password is incorrect.</h3>
