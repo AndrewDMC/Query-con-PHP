@@ -10,7 +10,6 @@
 <body>
     <?php
     require('db.php');
-    session_start();
     // If form submitted, insert values into the database.
     if (isset($_POST['nickname'])) {
         // removes backslashes
