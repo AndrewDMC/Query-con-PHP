@@ -10,6 +10,7 @@
 use LDAP\Result;
 
     require('db.php');
+    require('nav-bar.php');
     // If form submitted, insert values into the database.
     if($_SESSION['nickname'] != 'admin' && $_SESSION['nickname'] != 'admin'){
         header("Location: index.php");
@@ -24,11 +25,13 @@ use LDAP\Result;
         }
         else{}?>
             <div class="form">
+                <div class="admin">
                 <h1>ADMIN</h1>
                 <form name="QUERY" action="" method="post">
                     <input type="text" name="query" placeholder="Query" required />
                     <input type="submit" name="submit" value="INVIA" class="button"/>
                 </form>
+                </div>
             </div>
         <?php } ?>
     

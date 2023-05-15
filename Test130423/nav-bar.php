@@ -10,6 +10,7 @@
     <header class="nav-bar">
         <a href="index.php" class="navElement">Home</a>
         <a href="classifica.php" class="navElement">Classifica</a>
+        <a href="giocatori.php" class="navElement">Giocatori</a>
         <a href="admin.php" class="navElement">ADMIN</a>
     </header>
     

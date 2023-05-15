@@ -42,6 +42,7 @@
     } else {
     ?>
         <div class="form">
+            <div class="login">
             <h1>Classifica Serie A</h1>
             <form action="" method="post" name="login">
                 <input type="text" name="nickname" placeholder="nickname" required />
@@ -49,6 +50,7 @@
                 <input name="submit" type="submit" value="Login" class="button" />
             </form>
             <p>Non sei registrato? <a href='registration.php'>Registrati qui</a></p>
+            </div>
         </div>
     <?php } ?>
 </body>
