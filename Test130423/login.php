@@ -18,6 +18,7 @@
         $nickname = mysqli_real_escape_string($con, $nickname);
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
+        $password = md5($password);
         //Checking is user existing in the database or not
         $query = "SELECT * FROM `Utenti` WHERE nickname='$nickname' and password='$password'";
         $result = mysqli_query($con, $query);
@@ -25,7 +26,7 @@
         if ($rows == 1) {
             $_SESSION['nickname'] = $nickname;
             // Redirect user to index.php
-            if($nickname == "admin" && $password == "admin"){
+            if($nickname == "root"){
                 header("Location: admin.php");
             }
             else{

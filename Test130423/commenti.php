@@ -5,29 +5,35 @@
     echo '<meta charset="utf-8">
     <title>Partita '. $_GET['id'].'</title>';
     ?>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
     <?php
     require('db.php');
     $tableName = 'Commenti';
-    $columns = ['nickname', 'commento'];
+    $columns = ['utente', 'nota'];
     $id = 0;
 
     echo '<div class="form_commenti">
 
     <form name="commenti" action="" method="post">
-        <input type="text" name="commento" placeholder="Commento" required />
+        <input type="text" name="commento" placeholder="Inserisci un Commento" required />
         <input type="submit" name="submit" value="INVIA" class="button"/>';
     if (isset($_REQUEST['commento'])) {
         $query = "INSERT INTO $tableName (IP, timestamp, nota, partita, utente) VALUES ('" . $_SERVER['REMOTE_ADDR'] . "', '". date("Y-m-d H:i:s") . "', '" . $_REQUEST['commento'] ."','". $_GET['id'] . "', '" . $_SESSION['nickname'] . "')";
         $result = mysqli_query($con, $query);
-        
-        if ($result) {
-            echo "<script>alert('Commento inserito con successo');</script>";
-        } else {
-            echo "Nessun commento trovato per questa partita.";
+        if($result){
+            echo "<div class='form'>
+            <h3>Commento inviato con successo.</h3>
+            <br/>Click qui per <a href='commenti.php?id=". $_GET['id'] ."'>aggiornare</a></div>";
         }
+
+        $query = "SELECT " . implode(', ', $columns) . " FROM $tableName WHERE $tableName.partita = '" . $_GET['id'] . "'";
+        $result = mysqli_query($con, $query);
+        $rows = mysqli_num_rows($result);
+
+        table($rows, $columns, $result); 
     }
     else{
         $query = "SELECT " . implode(', ', $columns) . " FROM $tableName WHERE $tableName.partita = '" . $_GET['id'] . "'";
@@ -59,6 +65,10 @@
     }
 
     ?>
+
+    </form>
+    <br/>Click qui per <a href='index.php'>Menu principale</a></div>
+    
 
 
 

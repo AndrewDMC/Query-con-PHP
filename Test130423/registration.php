@@ -18,6 +18,7 @@
         $email = mysqli_real_escape_string($con, $email);
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
+        $password = md5($password);
         $nome = stripslashes($_REQUEST['nome']);
         $nome = mysqli_real_escape_string($con, $nome);
         $cognome = stripslashes($_REQUEST['cognome']);
