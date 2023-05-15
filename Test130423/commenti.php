@@ -11,6 +11,7 @@
 
     <?php
     require('db.php');
+    require('nav-bar.php');
     $tableName = 'Commenti';
     $columns = ['utente', 'nota'];
     $id = 0;
@@ -24,7 +25,7 @@
         $query = "INSERT INTO $tableName (IP, timestamp, nota, partita, utente) VALUES ('" . $_SERVER['REMOTE_ADDR'] . "', '". date("Y-m-d H:i:s") . "', '" . $_REQUEST['commento'] ."','". $_GET['id'] . "', '" . $_SESSION['nickname'] . "')";
         $result = mysqli_query($con, $query);
         if($result){
-            echo "<div class='form'>
+            echo "<div class='form_commentoTrue' class='form'>
             <h3>Commento inviato con successo.</h3>
             <br/>Click qui per <a href='commenti.php?id=". $_GET['id'] ."'>aggiornare</a></div>";
         }

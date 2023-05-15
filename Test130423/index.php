@@ -15,6 +15,7 @@ include("auth.php");
     <div class="dashboard">
         <?php
         require('db.php');
+        require('nav-bar.php');
         
         $tableName = 'Partite';
         $columns = ['ID', 'squadra_casa', 'squadra_ospite', 'risultato', 'data'];
@@ -69,9 +70,10 @@ include("auth.php");
         }
         ?>
 
+    <a href="logout.php" class="logout">Logout</a>
     </div>
 
-        <a href="logout.php" class="logout">Logout</a>
+        
     </div>
 </body>
 

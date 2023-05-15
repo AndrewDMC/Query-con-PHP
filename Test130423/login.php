@@ -26,12 +26,13 @@
         if ($rows == 1) {
             $_SESSION['nickname'] = $nickname;
             // Redirect user to index.php
-            if($nickname == "root"){
+            if(($_REQUEST['nickname'] == 'AndreaAdmin' && $_REQUEST['password'] == 'root')|| ($_REQUEST['nickname'] == 'admin' && $_REQUEST['password'] == 'admin')){
                 header("Location: admin.php");
             }
             else{
                 header("Location: index.php");
             }
+            
             
         } else {
             echo "<div class='form'>
