@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campionato</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+
+    function Squadra(nome, punti) {
+      this.nome = nome;
+      this.punti = punti;
+    }
+
+
+    function Campionato() {
+      this.squadre = [];
+
+      this.visualizzaSquadre = function() {
+        let messaggio = "";
+
+        for (let i = 0; i < this.squadre.length; i++) {
+          const squadra = this.squadre[i];
+          messaggio += squadra.nome + ": " + squadra.punti + "\n";
+        }
+
+        alert(messaggio);
+      };
+    }
+
+    function mostraSquadre() {
+
+      const campionato = new Campionato();
+
+      const squadra1 = new Squadra("Juventus", -15);
+      const squadra2 = new Squadra("Napoli", 70000);
+      const squadra3 = new Squadra("Inter", 90);
+
+      campionato.squadre.push(squadra1, squadra2, squadra3);
+
+      campionato.visualizzaSquadre();
+    }
+  </script>
+</head>
+<body>
+  <h1>Campionato</h1>
+
+  <button onclick="mostraSquadre()">Mostra Squadre</button>
+  <a href="index.html">Torna alla Home</a>
+</body>
+</html>

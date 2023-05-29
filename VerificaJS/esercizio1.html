@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Elevamento a Potenza</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+        function elevamentoAPotenza(base, esponente) {
+
+        if (esponente === 0) {
+            return 1;
+        }
+
+        let risultato = base;
+
+
+        for (let i = 1; i < esponente; i++) {
+            risultato = prodotto(risultato, base);
+        }
+
+        return risultato;
+        }
+
+
+        function somma(a, b) {
+        let carry;
+        while (b !== 0) {
+            carry = a & b;
+            a = a ^ b;
+            b = carry << 1;
+        }
+        return a;
+        }
+
+
+        function prodotto(a, b) {
+        let risultato = 0;
+
+
+        if (a === 0 || b === 0) {
+            return 0;
+        }
+
+
+        for (let i = Math.abs(b); i > 0; i = somma(i, -1)) {
+            risultato = somma(risultato, a);
+        }
+
+
+        if (b < 0) {
+            risultato = -risultato;
+        }
+
+        return risultato;
+        }
+
+
+        const base = 2;
+        const esponente = 4;
+        const risultato = elevamentoAPotenza(base, esponente);
+        console.log(risultato); 
+
+
+    function calcolaPotenza() {
+
+      var base = parseInt(document.getElementById('base').value);
+      var esponente = parseInt(document.getElementById('esponente').value);
+
+
+      var risultato = elevamentoAPotenza(base, esponente);
+
+      document.getElementById('risultato').textContent = "Risultato: " + risultato;
+    }
+  </script>
+</head>
+<body>
+  <h1>Elevamento a Potenza</h1>
+  <label for="base">Base:</label>
+  <input type="number" id="base"><br>
+  <label for="esponente">Esponente:</label>
+  <input type="number" id="esponente"><br>
+  <button onclick="calcolaPotenza()">Calcola</button>
+  <p id="risultato"></p>
+  <a href="index.html">Torna alla Home</a>
+</body>
+</html>

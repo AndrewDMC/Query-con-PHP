@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Link per Discipline</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    const disciplineLinks = new Map();
+
+    function aggiungiLink(disciplina, link) {
+
+      if (disciplineLinks.has(disciplina)) {
+
+        const linkEsistenti = disciplineLinks.get(disciplina);
+        linkEsistenti.push(link);
+      } else {
+
+        disciplineLinks.set(disciplina, [link]);
+      }
+    }
+
+    function mostraLink(disciplina) {
+
+      const links = disciplineLinks.get(disciplina);
+
+
+      const listaLinks = document.getElementById('lista-links');
+      listaLinks.innerHTML = '';
+
+      if (links) {
+        for (let i = 0; i < links.length; i++) {
+          const linkElement = document.createElement('a');
+          linkElement.href = links[i];
+          linkElement.textContent = links[i];
+          linkElement.target = '_blank';
+
+          const listItem = document.createElement('li');
+          listItem.appendChild(linkElement);
+          listaLinks.appendChild(listItem);
+        }
+      } else {
+        const listItem = document.createElement('li');
+        listItem.textContent = 'Nessun link disponibile per questa disciplina';
+        listaLinks.appendChild(listItem);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Link per Discipline</h1>
+  
+  <label for="disciplina">Seleziona una disciplina:</label>
+  <select id="disciplina" onchange="mostraLink(this.value)">
+    <option value="">Seleziona...</option>
+    <option value="SCIENZE">SCIENZE</option>
+    <option value="FISICA">FISICA</option>
+    <option value="MATEMATICA">MATEMATICA</option>
+  </select>
+
+  <h2>Link collegati:</h2>
+  <ul id="lista-links"></ul>
+
+  <script>
+
+    aggiungiLink("SCIENZE", "https://www.esempio1.com");
+    aggiungiLink("SCIENZE", "https://www.esempio2.com");
+    aggiungiLink("FISICA", "https://www.esempio3.com");
+    aggiungiLink("MATEMATICA", "https://www.esempio4.com");
+    aggiungiLink("MATEMATICA", "https://www.esempio5.com");
+  </script>
+  <a href="index.html">Torna alla Home</a>
+</body>
+</html>
