@@ -1,0 +1,26 @@
+table {
+    background-color: #222;
+    border-collapse: collapse;
+    margin: 20px auto;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #d2691e;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  td:first-child {
+    background-color: #444;
+    color: #fff;
+    font-weight: bold;
+  }
