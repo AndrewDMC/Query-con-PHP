@@ -28,3 +28,6 @@ else{
   echo "<a href='classifica.php'>Torna alla classifica</a>";
 }
 ?>
+<head>
+  <link rel="stylesheet" href="style/style.css">
+</head>
