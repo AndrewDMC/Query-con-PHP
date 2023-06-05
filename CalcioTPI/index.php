@@ -9,19 +9,25 @@
 <body>
   <?php
   require "nav-bar.php";
+  require "connection.php";
+  $query = "SELECT nome FROM Squadre";
+  $stmt = $pdo->query($query);
+  $risultati = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
   <h1>Inserimento risultati partite</h1>
   <form action="aggiorna_risultato.php" method="post">
     <label for="squadra_casa">Squadra di casa:</label>
     <select name="squadra_casa" id="squadra_casa">
-      <option value="Squadra A">Squadra A</option>
-      <option value="Squadra B">Squadra B</option>
+      <?php foreach ($risultati as $risultato): ?>
+        <option value= <?php echo $risultato['nome']?> > <?php echo $risultato['nome']?> </option>
+      <?php endforeach; ?>
     </select>
 
     <label for="squadra_ospite">Squadra ospite:</label>
     <select name="squadra_ospite" id="squadra_ospite">
-      <option value="Squadra C">Squadra C</option>
-      <option value="Squadra D">Squadra D</option>
+        <?php foreach ($risultati as $risultato): ?>
+          <option value= <?php echo $risultato['nome']?> > <?php echo $risultato['nome']?> </option>
+        <?php endforeach; ?>
     </select>
 
     <label for="gol_casa">Gol squadra di casa:</label>

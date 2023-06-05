@@ -4,10 +4,10 @@ require "connection.php";
 // Calcolo della classifica
 $query = "SELECT squadra_casa, squadra_ospite, gol_casa, gol_ospite FROM risultati";
 $stmt = $pdo->query($query);
-$resultati = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$risultati = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $classifica = array();
-foreach ($resultati as $risultato) {
+foreach ($risultati as $risultato) {
   $squadraCasa = $risultato['squadra_casa'];
   $squadraOspite = $risultato['squadra_ospite'];
   $golCasa = $risultato['gol_casa'];
